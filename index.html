@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <title>Motrac Scanner</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="app-container">
+    <!-- Navigation Bar -->
+    <div class="nav-bar">
+      <div class="nav-content">
+        <div class="nav-left">
+          <button class="nav-button" id="backBtn" style="visibility: hidden;">← Terug</button>
+        </div>
+        <div class="nav-title" id="navTitle">Motrac Scanner</div>
+        <div class="nav-right">
+          <button class="theme-toggle" id="themeToggle" title="Theme wisselen">🌙</button>
+          <button class="nav-button" id="logoutBtn" style="visibility: hidden;">Logout</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Login Screen -->
+      <div id="loginScreen" class="screen">
+        <div class="user-info">
+          <div class="user-avatar">📱</div>
+          <div class="user-name">Welkom</div>
+          <div class="user-role">Scan je badge om in te loggen</div>
+        </div>
+
+        <div class="form-group">
+          <form id="loginForm">
+            <div class="form-row">
+              <label class="form-label">Badge</label>
+              <input type="text" class="form-input" id="userInput" placeholder="Scan badge" autocomplete="off" />
+            </div>
+          </form>
+        </div>
+
+        <button type="submit" form="loginForm" class="btn">Inloggen</button>
+      </div>
+
+      <!-- Main Menu -->
+      <div id="mainMenu" class="screen hidden">
+        <div class="user-info">
+          <div class="user-avatar" id="userAvatar">👤</div>
+          <div class="user-name" id="userName">Gebruiker</div>
+          <div class="user-role">Motrac Medewerker</div>
+        </div>
+
+        <div class="list-group">
+          <div class="list-item" data-module="placement">
+            <div class="list-icon" style="background: var(--ios-blue); color: white;">📦</div>
+            <div class="list-content">
+              <div class="list-title">Plaatsing</div>
+              <div class="list-subtitle">Barcodes op locatie plaatsen</div>
+            </div>
+            <div class="list-accessory">›</div>
+          </div>
+
+          <div class="list-item" data-module="picking">
+            <div class="list-icon" style="background: var(--ios-green); color: white;">✅</div>
+            <div class="list-content">
+              <div class="list-title">Picking</div>
+              <div class="list-subtitle">Orders uitvoeren</div>
+            </div>
+            <div class="list-accessory">›</div>
+          </div>
+
+          <div class="list-item" data-module="transport">
+            <div class="list-icon" style="background: var(--ios-orange); color: white;">🚚</div>
+            <div class="list-content">
+              <div class="list-title">Transport</div>
+              <div class="list-subtitle">Transportregels uitvoeren</div>
+            </div>
+            <div class="list-accessory">›</div>
+          </div>
+
+          <div class="list-item" data-module="cycleCount">
+            <div class="list-icon" style="background: var(--ios-purple); color: white;">🔄</div>
+            <div class="list-content">
+              <div class="list-title">Cycle Count</div>
+              <div class="list-subtitle">Voorraadtelling</div>
+            </div>
+            <div class="list-accessory">›</div>
+          </div>
+
+          <div class="list-item" data-module="purchase">
+            <div class="list-icon" style="background: var(--ios-teal); color: white;">📋</div>
+            <div class="list-content">
+              <div class="list-title">Purchase Orders</div>
+              <div class="list-subtitle">Inkomende goederen</div>
+            </div>
+            <div class="list-accessory">›</div>
+          </div>
+
+          <div class="list-item" data-module="inventory">
+            <div class="list-icon" style="background: var(--ios-pink); color: white;">📊</div>
+            <div class="list-content">
+              <div class="list-title">Inventaris</div>
+              <div class="list-subtitle">Voorraad opzoeken</div>
+            </div>
+            <div class="list-accessory">›</div>
+          </div>
+
+          <div class="list-item" data-module="activity">
+            <div class="list-icon" style="background: var(--ios-gray); color: white;">📈</div>
+            <div class="list-content">
+              <div class="list-title">Activiteit</div>
+              <div class="list-subtitle">Recente acties</div>
+            </div>
+            <div class="list-accessory">›</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Module Screens -->
+      <div id="moduleScreen" class="screen hidden"></div>
+    </div>
+  </div>
+
+  <!-- Modal Template -->
+  <div id="modalOverlay" class="modal-overlay hidden">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-title" id="modalTitle">Titel</div>
+      </div>
+      <div class="modal-content">
+        <div id="modalContent">Inhoud</div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn--secondary" id="modalCancel">Annuleren</button>
+        <button class="btn" id="modalConfirm">Bevestigen</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- App (ES modules) -->
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
